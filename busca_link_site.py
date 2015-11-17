@@ -15,7 +15,7 @@ import os
 url = raw_input("Enter a URL (include `http://`): ")
 
 #Cria variavel de log apartir do nome do site
-log = url[11:]
+log = url[7:]
 
 #Arquivo de log
 arq = open(log,"w+")
