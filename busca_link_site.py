@@ -14,8 +14,11 @@ import os
 # get url
 url = raw_input("Enter a URL (include `http://`): ")
 
+#Cria variavel de log apartir do nome do site
+log = url[11:]
+
 #Arquivo de log
-arq = open("ist-sites.txt","w+")
+arq = open(log,"w+")
 
 # Conecta a url
 website = requests.get(url)
@@ -34,3 +37,4 @@ for link in links:
     
     #Grava em arquivos
     arq.writelines('\n'+link[0])
+    
