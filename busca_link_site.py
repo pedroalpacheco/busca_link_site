@@ -9,10 +9,11 @@ Created on Tue Nov 17 10:18:02 2015
 
 import requests
 import re
-import os
+#import os
 
 # get url
-url = raw_input("Enter a URL (include `http://`): ")
+url = raw_input("Entre com a URL (inclua `http://`): ")
+
 
 #Cria variavel de log apartir do nome do site
 log = url[7:]
@@ -21,7 +22,7 @@ log = url[7:]
 arq = open(log,"w+")
 
 # Conecta a url
-website = requests.get(url)
+website = requests.get("http://" +url)
 
 # Leitura html
 html = website.text
