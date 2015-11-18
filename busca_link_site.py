@@ -15,30 +15,27 @@ import os
 url = raw_input("Entre com a URL (inclua `http://`): ")
 
 #Verifica se http foi digitado
-#urlum = url[0:6]
+urlum = url[0:7]
 
-#Cria variavel de log apartir do nome do site
-log = url[7:]
-
-#Arquivo de log
-arq = open(log,"w+")
-
-# Conecta a url
-website = requests.get(url)
-
-# Leitura html
-html = website.text
-
-# re.findall pega todos os links
-links = re.findall('"((http|ftp)s?://.*?)"', html)
-
-arq.writelines(links[0])
-
-# Mostra links
-for link in links:
-    print(link[0])
+if urlum == "http://":
+    #Cria variavel de log apartir do nome do site
+    log = url[7:]
+    #Arquivo de log
+    arq = open(log,"w+")
+    # Conecta a url
+    website = requests.get(url)
+    # Leitura html
+    html = website.text
+    # re.findall pega todos os links    
+    links = re.findall('"((http|ftp)s?://.*?)"', html)
+    arq.writelines(links[0])
+    # Mostra links
+    for link in links:
+        print(link[0])
     
-    #Grava em arquivos
-    arq.writelines('\n'+link[0])
-    #print urlum
+        #Grava em arquivos
+        arq.writelines('\n'+link[0])
+        
+else:
+    print "Favor colocar endereço completo com -->`http://`"
     
